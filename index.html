@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+  ______  __      ______  __    __  ______  ______  ______  __  __   __  ______  __  __  __  __  _____
+ /\  __ \/\ \    /\  ___\/\ "-./  \/\  __ \/\  == \/\__  _\/\ \/\ "-.\ \/\  == \/\ \/\ \/\ \/\ \/\  __-.
+ \ \ \/\ \ \ \___\ \  __\\ \ \-./\ \ \  __ \ \  __<\/_/\ \/\ \ \ \ \-.  \ \  __<\ \ \_\ \ \ \_\ \ \ \/\ \
+  \ \_____\ \_____\ \_____\ \_\ \ \_\ \_\ \_\ \_\ \_\ \ \_\ \ \_\ \_\\"\_\ \_\ \_\ \_____\ \_____\ \____-
+   \/_____/\/_____/\/_____/\/_/  \/_/\/_/\/_/\/_/ /_/  \/_/  \/_/\/_/ \/_/\/_/ /_/\/_____/\/_____/\/____/
+-->
+<html lang="nb">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Månelander</title>
+
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #foreground {
+      background-color: black;
+    }
+
+    canvas {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .content {
+      position: relative;
+      top: 500px;
+      width: 700px;
+      margin: 0 auto;
+
+    }
+
+    @font-face {
+      font-family: 'Atari';
+      src: url(./res/fonts/atari.ttf) format('truetype')
+    }
+  </style>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <canvas id="foreground"></canvas>
+  <canvas id="UI"></canvas>
+  <div class="content">
+    <a href="dokumentasjon/lisenser.json">Se lisenser og kilder til alle ressurser</a><br>
+    <a href="dokumentasjon/planlegging.html">Se planlegging</a><br>
+    <a href="dokumentasjon/utvikling.html">Se utvikling</a><br>
+    <a href="dokumentasjon/app.js/">Se javascript-dokumentasjon</a>
+  </div>
+</body>
+
+</html>

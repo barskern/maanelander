@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown/markdown2.css" type="text/css" />
+</head>
+<body>
+<h1 id="utviklingen">Utviklingen</h1>
+<h2 id="v-modellen">V-modellen</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><a href="#designfaser">Designfaser</a></th>
+<th align="center"></th>
+<th align="right"><a href="#testfaser">Testfaser</a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="#kravspesifikasjon">Kravspesifikasjon</a></td>
+<td align="center">←</td>
+<td align="right"><a href="#akseptansetesting">Akseptansetesting</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="#systemdesign">Systemdesign</a></td>
+<td align="center">←</td>
+<td align="right"><a href="#integrasjonstesting">Integrasjonstesting</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="#programdesign">Programdesign</a></td>
+<td align="center">←</td>
+<td align="right"><a href="#enhetstesting">Enhetstesting</a></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="center"><a href="#implementasjon">Implementasjon</a></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p><em>Klikk på ulike navn for å hoppe til det avsnittet i dokumentet.</em></p>
+<h2 id="designfaser">Designfaser</h2>
+<h3 id="kravspesifikasjon">Kravspesifikasjon</h3>
+<h4 id="oppgaven">Oppgaven</h4>
+<blockquote>
+<p>Lag et spill inspirert av det klassiske arkade-spillet Lunar Lander (søk på <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">&quot;Lunar Lander Atari&quot;</a> på <a href="https://www.youtube.com/results?search_query=Lunar+Lander+Atari" title="YouTube søk for &#39;Lunar Lander Atari&#39;">YouTube</a>). I den grad du synes det er til hjelp i planleggingen og utviklingen å lage en strukturert liste med <strong>funksjonelle krav</strong> til spillet, brukergrensesnittskisser, flytdiagram, <strong>pseudokode</strong>, handlingsdiagram og/eller <strong>testspesifikasjon</strong>, så gjør du det, og dokumenter det. Du bør uansett ta i bruk noen av disse planleggingsteknikkene for å demonstrere at du behersker noe fra den delen av læreplanen som har med planlegging å gjøre. I tillegg skal du lage selve spillet.</p>
+</blockquote>
+<p><em><strong>Merknad:</strong> Utifra oppgaven kan man gjennomføre kravspesifikasjonen, men siden dette er en eksamen så vil denne spesifikasjonen bli laget på grunnlag av oppgaveteksten, altså i det virkelige liv hadde denne designdelen blitt gjennomført i samarbeid med oppdragsgiver i en større grad.</em></p>
+<h4 id="oprasjonelle-krav">Oprasjonelle krav:</h4>
+<ul>
+<li>Ingen direkte krav er spesifisert i oppgaveteksten, men jeg tolker det dit at spillet har disse oprasjonelle kravene:
+<ul>
+<li>Skal kunne kjøres på personlige klient'er (ikke mobil eller tablet) med tastatur og mus, og det skal være spillbart selv om hardwaret er noen år gammelt.</li>
+<li>Hovedsakelig skal fungere i alle nettlesere (ettersom det er et nett-spill). Derfor skal spillet til størst mulig grad være spillbart i blant annet Google Chrome, Mozilla FireFox, Opera og Internet Explorer. Senere i dokumentasjonen vil det være uttypet til hvilken grad spillet er støttet av nettlesere, ettersom det kan oppstå problemer med noen nettlesere og det er begrenset tid til å utvikle prosjektet.</li>
+<li>Spillet bør være så enkelt at de fleste bør kunne spille det. Det bør være så enkelt forklart at selv barn over 7-års alderen forstår spillet.</li>
+</ul></li>
+</ul>
+<h4 id="funksjonelle-krav">Funksjonelle krav:</h4>
+<ul>
+<li>Spillet skal være inspirert av <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">Lunar Lander</a> og derfor inneholde liknende spillmekanikker.</li>
+<li>Utenom punktet over er det ikke flere direkte fuksjonelle krav som er spesifisert, derfor tolker jeg det dit at dette er mine funksjonelle krav for dette prosjektet:
+<ul>
+<li>Krav:
+<ul>
+<li>Alle ressurser skal ha både en lenke til opprinelsessted og en lisens som defineres i <a href="./lisenser.json" title="JSON-objekt som inneholder link og lisenser til ressurser">lisenser.json</a>.</li>
+<li>Akselerasjon og hastighet - <em>Et system som minner om <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">Lunar Lander's</a> akselerasjons- og hastighetssystem slik at romskipet handler som om det var i et gravitasjonsfelt og den har treghet.</em></li>
+<li>Tid - <em>Spillet skal bruke tid til å beregne hastigheter og akselerasjon, ikke antall oppdateringer.</em></li>
+<li>Poeng - <em>Spillet må ha en poengsum som blir regnet utifra ulike faktorer slik at man kan øve seg og se om man blir bedre (evt. konkurrere med venner).</em></li>
+<li>Brukersamhandling - <em>Spillet må kunne håndtere inngangsdata fra brukeren.</em></li>
+<li>Forklaring av spillet (knapper, meningen osv.) - <em>Det skal hovedsakelig være et enkelt spill som inneholder minst en meny, en opplæringsdel av spillmekanikkene og en bane/et nivå, men hvis det er tid så kan for eksempel flere nivå legges til.</em></li>
+<li>Lyd og effekter</li>
+</ul></li>
+<li>Eventuelle tillegg:
+<ul>
+<li>Begrenset drivstoff</li>
+<li>Bonuspoeng for å lande et spesielt sted</li>
+<li>Ulike landingsfartøy</li>
+<li>Bakgrunn som endrer seg (skaper 3D effekt, paralax)</li>
+<li>Flere baner (evt. generering av baner)</li>
+<li>Flerspiller</li>
+<li>Lagring av høyeste poengsum</li>
+<li>Kunst (teksturer og bilder)</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="systemdesign">Systemdesign</h3>
+<h4 id="hva-skal-systemetspillet-gjøre">Hva skal systemet/spillet gjøre?</h4>
+<ul>
+<li>Spillet skal simulere en månelanding i enkel forstand, i likhet med <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">Lunar Lander</a>.</li>
+<li>Spillet skal gi en utfordring til spillere av et stort aldersspekter, og gi poeng utifra hvor dyktige spillerene er til å lande landingsmodulen.</li>
+<li>Spillet skal motta og respondere til fire knapper og museklikk fra spilleren.</li>
+</ul>
+<h4 id="hvilke-moduler-består-systemetspillet-av">Hvilke moduler består systemet/spillet av?</h4>
+<p>Hovedsakelig består spillet av en modul som er kode i seg selv. Utover dette så benyttes det ikke biblioteker eller tilleggspakker utenom HTML5, Javascript (ES5) og CSS</p>
+<h4 id="hvordan-skal-dataflyten-foregå-i-systemetspillet">Hvordan skal dataflyten foregå i systemet/spillet?</h4>
+<p>Dataen flyter innad i <a href="/app.js" title="Javascript-fil med spillkode, altså all koden til spillet">app.js</a> og vises på skjermen gjennom bruk av canvas og evt. HTML elementer</p>
+<h4 id="hvordan-skal-brukeren-samhandle-med-systemetspillet">Hvordan skal brukeren samhandle med systemet/spillet?</h4>
+<p>Som nevnt i første punktet over, så skal brukeren samhandle med systemet gjennom bruk av fire knapper på tastaturet og musepekeren.</p>
+<h4 id="brukergrensesnittet">Brukergrensesnittet</h4>
+<p>Ettersom oppgaven spesifiserer at man skal ta inspirasjon i <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">Lunar Lander</a> av Atari så ønsker jeg å benytte noen skjermbilder fra dette spillet til å vise mine ideer om brukergrensesnittet.</p>
+<p><img src="../res/images/LunarLander-Figur1.png" title="Skjermbilde fra Lunar Lander" alt="Skjermbilde fra Lunar Lander" /> <em>Her ser vi et skjermbilde fra Lunar Lander. I spillet jeg lager ønsker jeg å ha et liknende brukergrensesnitt, men med en mer moderne følelse. Altså en annen font og en litt annerledes framvisning.</em></p>
+<h4 id="testing-av-systemdesign">Testing av systemdesign</h4>
+<ul>
+<li>Få en utenforstående til å prøve spille og spøre om brukergrensesnittet og måten man samhandler med spillet på er hensiktsmessig og godt forklart</li>
+<li>Spørre personen om motivet, poengssystemet er godt forklart og forståelig</li>
+</ul>
+<hr />
+<h3 id="programdesign">Programdesign</h3>
+<h4 id="detaljert-design-av-systemetspillet">Detaljert design av systemet/spillet</h4>
+<p><em><strong>Merknad:</strong> Alle klassene og metodene er nøyere beskrevet i koden ved hjelp av kommentarer og i <a href="app.js/" title="Dokumentasjon av javascript-kode">egen dokumentasjon</a>.</em></p>
+<h4 id="klasser">Klasser:</h4>
+<ul>
+<li><em>DrawableObject</em> - Alle objekter som skal kunne tegnes på canvas skal arve egenskapene til denne klassen, men denne klassen skal ikke konstruere objekter alene.</li>
+<li><em>MoveableObject</em> - Alle objekter som skal ha fart og akselerasjon må arve egenskapene til denne klassen, men denne klassen skal ikke konstruere objekter alene.</li>
+<li><em>Text</em> - Konstruerer tekst-objekter som kan tegnes på canvas.</li>
+<li><em>Rectangle</em> - Konstruerer en firkant som kan tegnes på canvas.</li>
+<li><em>UI</em> - Konstruerer et objekt som holder styr på brukergrensesnittet og som kan tegne enkelt elementer på canvas.</li>
+<li><em>Ground</em> - En klasse som holder styr på bakken i spillet og kan tegne denne på canvas.</li>
+<li><em>Lander</em> - Konstruerer objektet som symboliserer spilleren og kan tegne denne på canvas.</li>
+</ul>
+<p>Se <a href="#testing-av-klassene">testing av klassene</a>.</p>
+<h4 id="spilløkken">Spilløkken:</h4>
+<p>Spillet skal kjøres ved hjelp av <code>requestAnimationFrame()</code> som er bakgrunnen for spilløkken. Denne funksjonen kalles med en funksjon som inneholder spilløkkaen, og på slutten av spilløkken så kalles <code>requestAnimationFrame()</code> igjen. Slik fortsetter løkken så hurtig som mulig, uten å kjøre synkront, slik en <code>while</code> løkke hadde gjort. Dette gjør at selv om spilløkka aldri slutter å gå, så kan det skje eventer i javascript. Spilløkka skal gjøre fire ting som er som følger:</p>
+<ol style="list-style-type: decimal">
+<li>Sjekke om det har skjedd noen eventer, og håndtere disse (altså håndtere inngangsverdier)</li>
+<li>Oppdatere alle elementer i spillet, som for eksempel månefartøyet, ved hjelp av eventuell inngangsverdier fra forrige punkt, deretter så sjekker man etter kollisjoner.</li>
+<li>Tegne alle elementer som skal tegnes på canvas.</li>
+<li>Kalle <code>requestAnimationFrame()</code> med seg selv som parameter.</li>
+</ol>
+<p><em>Disse fire punktene er forklart næremere her.</em></p>
+<ol style="list-style-type: decimal">
+<li>I spillet skal man ta inngangsverdier gjennom eventer, altså for eksempel et <code>onclick</code> event kan kalles når som helst under game løkken, men hvis man prøver å for eksempel endre på hastigheten til månelandere mens variablen brukes til å oppdatere hastigheten, så kan det skape problemer. Derfor samler jeg opp alle eventene som skjer hver gang løkken kjører og behandler de i starten av spilløkken. Altså er det første punktet i løkken å behandle en oppsamling av eventer som har skjedd under den forrige spilløkken.</li>
+<li>Etter at eventene er behandlet, så oppdateres alle objekter i spillet. Altså for eksempel flyttes månelanderen. I tillegg til å oppdatere objekter sjekker også denne delen av spillet for kollisjoner og oppdaterer variabler som tid og hastighet. En annen viktig del av oppdateringen er tiden fra forrige oppdatering, altså delta tid. Se <a href="#klokke-og-tider">klokke og tider</a> for en nærmere forklaring. Denne delta-tid vil derfor være en parameter i alle oppdateringsfunksjoner.</li>
+<li>Når alle objektene er oppdatert så tegnes de på canvaset i den tredje delen. Spillet skal ha ulike canvaser slik at man kan velge hvilket canvas man vil tegne de på, dette gjør at man kan få en lagdeling og at man for eksempel kan få en bakgrunn som ikke overlapper med noen av spillobjektene.</li>
+<li>Nå er spilløkken ferdig, men spillet er ikke over. Derfor kaller man løkken på nytt i punkt fire, slik at spillet fortsetter å kjøre. Som nevnt over så gjøres dette ved hjelp av <code>requestAnimationFrame()</code>.</li>
+</ol>
+<p>Se <a href="#testing-av-spilløkken">testing av spilløkken</a>.</p>
+<h4 id="ulike-tilstander">Ulike tilstander</h4>
+<p>Spillet kan være i ulike tilstander, i den form av at man starter på menyen. Når man så starter selve spillet så begynner man å spille, og da er spillet i en annen tilstand. En lett måte å skille mellom ulike tilstander er å lage en individuell spilløkke for hver tilstand og kjøre disse istedenfor å sjekke tilstanden før hver endring i spillet. Dette gjør man ved å ha en <code>Array</code> med ulike tilstander spillet kan være i og i spilløkken så kaller man de tre første punktene på den nåværende tilstanden.</p>
+<p>Siden dette er et relativt lite spill så skal jeg bruke hovedsakelig bruke 3 ulike tilstander som er som følger:</p>
+<ol style="list-style-type: decimal">
+<li><strong>&quot;Menu&quot;</strong> <em>Spillet starter i denne tilstanden, det er hovedmenyen der man kan starte spillet, se på instrukser eller endre instillinger.</em></li>
+<li><strong>&quot;In-game&quot;</strong> <em>Her spilles selve spillet, altså det er her man prøver å lande månelanderen.</em></li>
+<li><strong>&quot;Post-game&quot;</strong> <em>Når spillet er over så vises denne skjermen med informasjon om poeng, tips og videre valg om hva man vil gjøre.</em></li>
+</ol>
+<p><em>I tillegg til disse tre så skal jeg bruke en tilstand som heter <strong>&quot;Test&quot;</strong>. Denne er egentlig ikke en del av sluttproduktet men under produksjon så brukes denne tilstanden til å teste ulike deler av koden for å sjekke at koden fungere slik som den er spesifisert.</em></p>
+<p>Se <a href="#testing-av-de-ulike-tilstandene">testing av de ulike tilstandene</a>.</p>
+<h4 id="klokke-og-tider">Klokke og tider</h4>
+<p>Ettersom spilløkken repeteres basert på <code>requestAnimationFrame()</code> så kan løkken gå så fort som klienten klarer å kjøre spillet, derfor er det viktig at bevegelser skjer basert på tid og ikke basert på antall oppdateringer. Dette gjør at det er viktig å ha en klokke som holder orden på tiden.</p>
+<p>Grunnen til at dette er viktig er fordi hvis spillet oppdateres 60 ganger i sekundet, og hver gang månelanderen oppdateres så beveger den seg en piksel. Hvis det er en klient som ikke klarer å opprettholde denne oppdateringsfrekvensen og spillet bare oppdaterers 30 ganger i sekundet, så vil også månelanderen bare flytte seg 30 piksler på et sekund istedenfor 60 piksler. Derfor ganger man forskjellen i tid med forflyttningen slik at hvis oppdateringsfrekvensen synker, så øker delta og da øker avstanden som objektet flyttes. Dermed forflytter månelanderen seg like langt uansett om spillet oppdateres 30 eller 60 ganger per sekund.</p>
+<p>Se <a href="#testing-av-klokka">testing av klokka</a>.</p>
+<h4 id="justering-og-balansering-av-spillmekanikker">Justering og balansering av spillmekanikker</h4>
+<p>For at spillet skal kunne bli finjustert slik at alle mekanikkene fungerer optimalt og at det både er gøy og utfordrende, så lager jeg et objekt som heter <code>CONST</code> helt i starten av koden. Denne kan evt. flyttes ut til en JSON-fil. Dette objektet skal inneholde mange ulike variabler som endrer på spillet. For eksempel kan det være en variabel for tygdekraften. Dette objektet gjør at man etter å ha skrevet ferdig koden lett kan endre på mekanikkene slik at de fungerer slik man ønsker det.</p>
+<h4 id="testing-av-programdesign">Testing av programdesign</h4>
+<p>For å sørge for at spillet fungerer slik som spesifisert så er det vikitg å teste hver enkelt del av programmet som er definert i programdesignet, slik at når man setter sammen programmet så fungerer delene av koden slik som funksjoner og mekanikker.</p>
+<h5 id="testing-av-klassene">Testing av klassene</h5>
+<ul>
+<li>Alle klassene (som skal konstruere objekter selv) skal lage et objekt og det skal både oppdateres og tegnes på canvas.</li>
+<li>Metodene til hver enkelt klasse skal prøves ut med &quot;feilverdier&quot;, altså skal det sendes inn verdier som egentlig ikke skal komme inn.</li>
+</ul>
+<h5 id="testing-av-spilløkken">Testing av spilløkken</h5>
+<ul>
+<li>Spilløkken skal kjøres og det skal brukes <code>console.log()</code> til å sørge for at rekkefølgen er riktig</li>
+<li>Event håndtereren skal testet ut ved at det brukes <code>console.log()</code> og at det skjer mange eventer på samme tid, disse må da også bli utført i riktig rekkefølge, altså bare i punkt 1 av løkken.</li>
+</ul>
+<h5 id="testing-av-de-ulike-tilstandene">Testing av de ulike tilstandene</h5>
+<ul>
+<li>Alle tilstandene skal bli byttet til og de skal kjøre spilløkken i riktig rekkefølge</li>
+<li><strong><em>NB! Spesielt viktig er det at byttet mellom tilstander skjer ordentlig.</em></strong></li>
+</ul>
+<h5 id="testing-av-klokka">Testing av klokka</h5>
+<ul>
+<li>Klokken skal være en del av spilløkken og verdiene skal printes til konsollen.</li>
+</ul>
+<h3 id="implementasjon">Implementasjon</h3>
+<p>Se <a href="app.js/" title="Dokumentasjon av javascript-kode">dokumentasjon av javascript</a> for å få et nærmere innblikk i implementasjonen. Et viktig fokus under implementasjonen har vært å skrive kode som lett kan utvides. Et eksempel på dette er hvordan baner lastes inn til spillet. Alle banene ligger i en fil som heter <a href="../maps.json" title="JSON-objekt med informasjon om banene til spillet">maps.json</a> og her kan man endre på banene og verdiene utenfor spillet. Når man starter spillet så leser spillmotoren av denne filen og dataene blir brukt i framstillingen av banene. Ved å bare legge til en bane med nødvendig informasjon i <a href="../maps.json" title="JSON-objekt med informasjon om banene til spillet">maps.json</a> så er banen allerede en del av spillet.</p>
+<h2 id="testfaser">Testfaser</h2>
+<h3 id="enhetstesting">Enhetstesting</h3>
+<p>Det er blitt gjennomført enhetstesting i tråd med det som ble oppgitt i <a href="#testing-av-programdesign">Testing av programdesign</a>. Alle testene er ikke dokumentert, og bakgrunnen for dette er at innenfor tidsperspektivet vi fikk til rådighet så fikk jeg ikke tid til å dokumentere alt av tester. Noen tester som er dokumenter er:</p>
+<ul>
+<li><a href="#testing-av-spilløkken">Testing av spilløkken</a>
+<ul>
+<li>Brukte <code>console.log()</code> til å sørge for at rekkefølgen av spilløkken var riktig. Fant ut at <code>Object.prototype.extend()</code> ikke fungerte som ønskelig, og istedenfor at den allerede definerte funksjonen, i prototypen til objektet som blir utvidet, blir kalt først, så skal den heller kalle denne sist. Slik får man at hvis en klasse arver funksjoner fra en annen, så kalles de like funksjonene fra foreldre-klassen før sine egne funksjoner.</li>
+</ul></li>
+</ul>
+<h3 id="integrasjonstesting">Integrasjonstesting</h3>
+<p>Ved hjelp av en utenforstående person har spillet blitt testet på punktene oppgitt i <a href="#systemdesign">systemdesignet</a>.</p>
+<ul>
+<li>Som tilbakemelding har jeg fått at brukergrensesnittet på menyer og meldinger er fint, men innad i spillet så er det noe uforståelig hva negativ og positiv hastighet er. Jeg skjønner at det ikke er optimalt slik som det er nå, men dessverre så har jeg ikke nok tid til å gjøre endringer på brukergrensesnittet. I motsetning til dette så har jeg fått gode tilbakemeldinger på benevning av de ulike verdiene innad i spillet, altså som <em>m/s</em>. Dette skaper klarhet og gjør at man kan skaffe seg en nærmere forestilling om hvor stor hastigheten er.</li>
+<li>Rundt poengsystemet så er det meste klart, men det er forsatt litt mystisk. Dette mener jeg er en litt morsom del av spillet og det er ønskelig.</li>
+</ul>
+<h3 id="akseptansetesting">Akseptansetesting</h3>
+<p><a href="#kravspesifikasjon">Kravspesifikasjonen</a> som ble presenter i starten av utviklingsprosessen var i hovedsak en oppgave, og utifra denne laget jeg meg en liste med krav. Punktene som er strøket ut mener jeg at jeg har utført.</p>
+<p><em><strong>Merknad</strong>: Siden akseptansetesting egentlig skal gjennomføres med klienten, så blir denne delen noe annerledes enn en ordentlig akseptansetest.</em></p>
+<h4 id="oprasjonelle-krav-1">Oprasjonelle krav:</h4>
+<ul>
+<li>Ingen direkte krav er spesifisert i oppgaveteksten, men jeg tolker det dit at spillet har disse oprasjonelle kravene:
+<ul>
+<li><del>Skal kunne kjøres på personlige klient'er (ikke mobil eller tablet) med tastatur og mus, og det skal være spillbart selv om hardwaret er noen år gammelt.</del></li>
+<li><del>Hovedsakelig skal fungere i alle nettlesere (ettersom det er et nett-spill). Derfor skal spillet til størst mulig grad være spillbart i blant annet Google Chrome, Mozilla FireFox, Opera og Internet Explorer. Senere i dokumentasjonen vil det være uttypet til hvilken grad spillet er støttet av nettlesere, ettersom det kan oppstå problemer med noen nettlesere og det er begrenset tid til å utvikle prosjektet.</del></li>
+<li>Spillet bør være så enkelt at de fleste bør kunne spille det. Det bør være så enkelt forklart at selv barn over 7-års alderen forstår spillet.</li>
+</ul></li>
+</ul>
+<h4 id="funksjonelle-krav-1">Funksjonelle krav:</h4>
+<ul>
+<li><del>Spillet skal være inspirert av <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">Lunar Lander</a> og derfor inneholde liknende spillmekanikker.</del></li>
+<li>Utenom punktet over er det ikke flere direkte fuksjonelle krav som er spesifisert, derfor tolker jeg det dit at dette er mine funksjonelle krav for dette prosjektet:
+<ul>
+<li>Krav:
+<ul>
+<li><del>Alle ressurser skal ha både en lenke til opprinelsessted og en lisens som defineres i <a href="./lisenser.json" title="JSON-objekt som inneholder link og lisenser til ressurser">lisenser.json</a>.</del></li>
+<li><del>Akselerasjon og hastighet - <em>Et system som minner om <a href="https://www.google.no/#q=Lunar+Lander+Atari" title="Google søk for &#39;Lunar Lander Atari&#39;">Lunar Lander's</a> akselerasjons- og hastighetssystem slik at romskipet handler som om det var i et gravitasjonsfelt og den har treghet.</em></del></li>
+<li><del>Tid - <em>Spillet skal bruke tid til å beregne hastigheter og akselerasjon, ikke antall oppdateringer.</em></del></li>
+<li><del>Poeng - <em>Spillet må ha en poengsum som blir regnet utifra ulike faktorer slik at man kan øve seg og se om man blir bedre (evt. konkurrere med venner).</em></del></li>
+<li><del>Brukersamhandling - <em>Spillet må kunne håndtere inngangsdata fra brukeren.</em></del></li>
+<li><del>Forklaring av spillet (knapper, meningen osv.) - <em>Det skal hovedsakelig være et enkelt spill som inneholder minst en meny, en opplæringsdel av spillmekanikkene og en bane/et nivå, men hvis det er tid så kan for eksempel flere nivå legges til.</em></del></li>
+<li><del>Lyd og effekter</del></li>
+</ul></li>
+<li>Eventuelle tillegg:
+<ul>
+<li><del>Begrenset drivstoff</del></li>
+<li>Bonuspoeng for å lande et spesielt sted</li>
+<li>Ulike landingsfartøy</li>
+<li>Bakgrunn som endrer seg (skaper 3D effekt, paralax)</li>
+<li><del>Flere baner (evt. generering av baner)</del></li>
+<li>Flerspiller</li>
+<li>Lagring av høyeste poengsum</li>
+<li>Kunst (teksturer og bilder)</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Utifra tid som var til disposisjon så er jeg fornøyd med spillet jeg har produsert. Jeg ser helt klart områder som kunne vært bedre, men de delene som er lagt til så langt fungerer dugelig.</p>
+<p><a href="../">Tilbake til spillet</a></p>
+</body>
+</html>

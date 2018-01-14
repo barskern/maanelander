@@ -1,0 +1,54 @@
+{
+  "fonts": {
+    "atari": {
+      "source": "http://www.fontspace.com/genshichi-yasui/atari-font",
+      "licence": "freeware (personal and commercial)"
+    }
+  },
+  "images": {
+    "LunarLander-Figur1.png": {
+      "source": "https://upload.wikimedia.org/wikipedia/en/9/9f/Lunar_Lander.png",
+      "licence": "freelicsens (https://en.wikipedia.org/wiki/Wikipedia:Image_use_policy#Copyright_and_licensing)"
+    },
+    "LunarModule.svg": {
+      "source": "http://game-icons.net/delapouite/originals/lunar-module.html",
+      "licence": "freeware (http://creativecommons.org/licenses/by/3.0/)",
+      "creator": "Delapouite (http://delapouite.com/)"
+    },
+    "StrikingSplinter.svg": {
+      "source": "http://game-icons.net/lorc/originals/striking-splinter.html",
+      "licence": "freeware (http://creativecommons.org/licenses/by/3.0/)",
+      "creator": "Lorc (http://lorcblog.blogspot.no/)"
+    },
+    "ScreenImpact.svg": {
+      "source": "http://game-icons.net/lorc/originals/screen-impact.html",
+      "licence": "freeware (http://creativecommons.org/licenses/by/3.0/)",
+      "creator": "Lorc (http://lorcblog.blogspot.no/)"
+    }
+  },
+  "sounds": {
+    "Thrusters.mp3": {
+      "source": "http://www.universal-soundbank.com/science-fiction-vaisseaux-spaciaux.htm",
+      "licence": "none?"
+    },
+    "Explosion.mp3": {
+      "source": "http://www.universal-soundbank.com/explosions.htm",
+      "licence": "none?"
+    },
+    "WeHaveLiftOff.wav": {
+      "source": "http://www.nasa.gov/62282main_countdown_launch.wav",
+      "licence": "http://www.nasa.gov/multimedia/guidelines/index.html#1",
+      "creator": "NASA"
+    },
+    "TheEagleHasLanded.wav": {
+      "source": "http://www.nasa.gov/62283main_landing.wav",
+      "licence": "http://www.nasa.gov/multimedia/guidelines/index.html#1",
+      "creator": "NASA"
+    },
+    "OneSmallStepForMan.wav": {
+      "source": "http://www.nasa.gov/62284main_onesmall2.wav",
+      "licence": "http://www.nasa.gov/multimedia/guidelines/index.html#1",
+      "creator": "NASA"
+    }
+  }
+}
